@@ -26,35 +26,35 @@ Install docker (latest version) - https://docs.docker.com/get-docker/
 Setting up a simple ROS Melodic Docker Image is simple because Docker has the build files ready to use with a single line of code. This single line creates an image that is pre-setup with ROS Melodic and the relevent Ubuntu version (18.04). This can be done for most versions of ROS.
 
 In the terminal:
-...
+'''
 $ sudo docker pull ros:noetic
-...
+'''
 Check the version is correct and see the Image ID
-...
+'''
 $ sudo docker images
-...
+'''
 
 ### STEP 3 - USING ROS
 
 To start using ROS we first need to create a container based on the ROS image that we just built. To do so we use the 'run' command which creates a new container (always a new container with this command!) based on a specified image. We add the '-it' to ensure that Docker provides us with a CLI to type into. In our new CLI, start ros with roscore.
 
-...
+'''
 $ sudo docker run -it <Image ID>
 $ roscore
-...
+'''
 
 Now by ROs' very nature, to do anything useful we need to open a new terminal. Unfortunately simply opening a terminal like normal will create a new one on our host machine but not a new one within our container. We therefore need a couple of extra steps. 
 
 First we find the container ID of the container that we just created with the 'run' command. Then we setup a new terminal using that container ID:
-...
+'''
 $ sudo docker ps
 $ sudo docker exec -it <container ID> bash
-...
+'''
 
 Then as normally needed for ROS (note as with standard ROS, the .bashrc script can be updated to avoid typing this every time):
-...
+'''
 $ source /opt/ros/melodic/setup.bash
-...
+'''
 
 Repeat this process everytime you need a new terminal (slightly annoying but 
 only one extra step over standard ROS use).
@@ -69,14 +69,14 @@ Then setup a new image with both NVIDIA and ROS using this tutorial: http://wiki
 (Note that the code stored in this repo is taken from this tutorial.)
 
 Note that if the second tutorial does not work straight away, try adding the following before the 'build' command:
-...
+'''
 $ sudo rm -rf /tmp/.docker.xauth
-...
+'''
 
 You should now have a new image in your list of images.
-...
+'''
 $ sudo docker images
-...
+'''
 
 ### STEP 5 - CREATING A CONTAINER IN THE NEW IMAGE
 
@@ -102,24 +102,24 @@ If we make any changes in the container there are two options to save the change
 1) Stop the container and then start it again
 
 In a new host computer terminal:
-...
+'''
 $ sudo docker stop <container ID>
-...
+'''
 Or simply type 'exit' whilst in the container.
 
 Start the container back up again and reattach:
-...
+'''
 $ sudo docker start <container ID>
 $ sudo docker attach <container ID>
-...
+'''
 
 2) Commit the container to a new image (for more serious changes for example)
-...
+'''
 $ sudo docker commit <container> <new image name>
-...
+'''
 
 Then to run we use the same code as before but with the new image name to start a new container based on the new image.
-...
+'''
 $ sudo docker run -it \
      --env="DISPLAY=$DISPLAY" \
      --env="QT_X11_NO_MITSHM=1" \
@@ -129,36 +129,36 @@ $ sudo docker run -it \
      --runtime=nvidia \
      <new image name> \
      bash
-...
+'''
 
 ### SOME OTHER USEFUL COMMANDS:
 
 Remove all stopped containers (be careful!)
-...
+'''
 $ sudo docker container prune
-...
+'''
 
 Remove image without and with force
-...
+'''
 $ sudo docker image rm <image ID>
 $ sudo docker image rm --force <image ID>
-...
+'''
 
 Remove container without and with force
-...
+'''
 $ sudo docker container rm <container ID>
 $ sudo docker container rm --force <container ID>
-...
+'''
 
 Rename a container
-...
+'''
 $ sudo docker rename <old container name> <new container name>
-...
+'''
 
 Name a docker container, add the following to the docker run command
-...
+'''
 --name <container name>
-...
+'''
 
 
 
