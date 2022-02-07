@@ -36,9 +36,9 @@ $ sudo docker images
 
 ### STEP 3 - USING ROS
 
-To start using ROS we first need to create a container based on the ROS image that we just built. To do so we use the 'run' command which creates a new container (always a new container with this command!) based on a specified image. We add the '-it' to ensure that Docker provides us with a CLI to type into. In our new CLI, start ros with roscore.
+To start using ROS we first need to create a container based on the ROS image that we just built. To do so we use the `run` command which creates a new container (always a new container with this command!) based on a specified image. We add the `-it` to ensure that Docker provides us with a CLI to type into. In our new CLI, start ros with roscore.
 
-Note - <image ID> or <container ID> can be replaced with <image name> or <container name> in all cases.
+Note - `<mage ID>` or `<container ID>` can be replaced with `<image name>` or `<container name>` in all cases.
 
 
 ```
