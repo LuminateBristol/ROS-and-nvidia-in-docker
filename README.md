@@ -27,7 +27,7 @@ Setting up a simple ROS Melodic Docker Image is simple because Docker has the bu
 
 In the terminal:
 ```
-$ sudo docker pull ros:noetic
+$ sudo docker pull ros:melodic
 ```
 Check the version is correct and see the Image ID
 ```
