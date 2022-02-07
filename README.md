@@ -81,6 +81,7 @@ $ sudo docker images
 ### STEP 5 - CREATING A CONTAINER IN THE NEW IMAGE
 
 The run command is slightly more complex for this image. If you followed the tutorial then you will already have a container running within the image. To run a new container we have to use the run command from the tutorial:
+```
 
 $ sudo docker run -it \
      --env="DISPLAY=$DISPLAY" \
@@ -91,6 +92,7 @@ $ sudo docker run -it \
      --runtime=nvidia \
      my_melodic_image \
      bash
+```
      
 To make this easier we can add this to an executable bash file and run using './<file name.bash>' but remember to make that file executable using 'chmod a+x <file name.bash>'. (See tutorial for more).
 
