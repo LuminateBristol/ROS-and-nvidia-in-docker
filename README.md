@@ -101,6 +101,14 @@ To make this easier we can add this to an executable bash file and run using './
 
 And we are in! We've opened a container of the image which we can now used as a standard ubuntu command line (CLI) with ROS in the same way as described in Step 3.
 
+Finally we want to update the .bashrc file to make sure the graphics work and to prevent us having to source ros every time. (Note you may need to install gedit too). In the command line for the newly ran container:
+
+```
+$ source /opt/ros/melodic/setup.bash
+$ export XDG_RUNTIME_DIR=/some/directory/you/specify 
+$ export RUNLEVEL=3
+```
+
 ### STEP 6 - MAKING CHANGES
 
 If we make any changes in the container there are two options to save the changes for future work.
