@@ -81,6 +81,12 @@ You should now have a new image in your list of images.
 $ sudo docker images
 ```
 
+NOTE - you may get the error "Could not connect to any X display" when opening a new container with NVIDIA. Solve this by allowing the container access to xhost by running the following command prior to starting / opening the container:
+```
+xhost +local:docker
+```
+
+
 ### STEP 5 - CREATING A CONTAINER IN THE NEW IMAGE
 
 The run command is slightly more complex for this image. If you followed the tutorial then you will already have a container running within the image. To run a new container we have to use the run command from the tutorial:
