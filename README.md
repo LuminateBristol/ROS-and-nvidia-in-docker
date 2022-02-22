@@ -179,8 +179,55 @@ Name a docker container, add the following to the docker run command
 --name <container name>
 ```
 
+### EXTRA: USING ARDUINO IN DOCKER
+
+Install arduino on Docker:
+
+METHOD 1: OLD VERSION OF ARDUINO
+```
+$ sudo apt-get install arduino
+$ arduino
+```
+
+Installing libraries:
+Download from the command line and then rename to suitable name (if needed - Arduino IDE will
+throw a name error if it's got punctuation etc)
+```
+$ sudo apt-get install wget
+$ wget -P /home/downloads <library url (get from arduino website>
+$ unzip <libdary zip file>
+$ mv <old library name> <new library name>
+```
+Now open arduino, go to Sketch -> Add library -> navigate and upload
 
 
+Note that this method is only available for the old versions of Arduino and so does not work well with newer scripts.
 
+METHOD 2: ARDUINO-CLI:
+
+Navigate to $PATH and download the arduino-cli
+```
+$ echo $PATH
+$ cd <navigate to a directory in $PATH>
+$ wget "<link for latest arduino-cli>
+$ tar -xf arduino_cli...........tar.gz
+```
+You should now be able to run arduino through the arduino-cli.
+
+Find a folder for a new sketch and run the following test code:
+```
+$ arduino-cli board listall mkr
+$ arduino-cli sketch new test_script
+$ arduono-cli cat test_script.ino
+$ gedit test_script/test_script.ino
+# ADD CODE #
+$ arduino-cli compile --fqbn arduino:avr:uno test_script.ino
+```
+Note this has been setup for an Arduino Uno - change FQBN if using a different board.
+
+Note that in many cases, Arduino libraries will need installing. This can be done using the following. Note that the library name needs to be correct - try googling the library name if it doesn't recognise it first time.
+```
+$ arduino-cli lib install <library name>
+```
 
 
