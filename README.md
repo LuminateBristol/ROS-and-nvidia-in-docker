@@ -209,7 +209,7 @@ Navigate to $PATH and download the arduino-cli
 ```
 $ echo $PATH
 $ cd <navigate to a directory in $PATH>
-$ wget "<link for latest arduino-cli>
+$ wget "<link for latest arduino-cli>"
 $ tar -xf arduino_cli...........tar.gz
 ```
 You should now be able to run arduino through the arduino-cli.
@@ -221,9 +221,10 @@ $ arduino-cli sketch new test_script
 $ arduono-cli cat test_script.ino
 $ gedit test_script/test_script.ino
 # ADD CODE #
-$ arduino-cli compile --fqbn arduino:avr:uno test_script.ino
+$ arduino-cli compile --fqbn <FQBN> test_script.ino
+$ arduino-cli upload <Port Name> --fqbn <FQBN> test_script.ino
 ```
-Note this has been setup for an Arduino Uno - change FQBN if using a different board.
+Note you can find `<FQBN` and `<Port Name>` using `arduino-cli board list` 
 
 Note that in many cases, Arduino libraries will need installing. This can be done using the following. Note that the library name needs to be correct - try googling the library name if it doesn't recognise it first time.
 ```
