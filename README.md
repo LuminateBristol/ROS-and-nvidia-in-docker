@@ -222,9 +222,9 @@ $ arduono-cli cat test_script.ino
 $ gedit test_script/test_script.ino
 # ADD CODE #
 $ arduino-cli compile --fqbn <FQBN> test_script.ino
-$ arduino-cli upload <Port Name> --fqbn <FQBN> test_script.ino
+$ arduino-cli upload -p <Port Name> --fqbn <FQBN> test_script.ino
 ```
-Note you can find `<FQBN` and `<Port Name>` using `arduino-cli board list` 
+Note you can find `<FQBN>` and `<Port Name>` using `arduino-cli board list` . An example FQBN for an Arduino Uno is `arduino:avr:uno` and an example port is `/dev/ttyUSB0`
 
 Note that in many cases, Arduino libraries will need installing. This can be done using the following. Note that the library name needs to be correct - try googling the library name if it doesn't recognise it first time.
 ```
